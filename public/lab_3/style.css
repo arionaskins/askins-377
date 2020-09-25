@@ -11,21 +11,37 @@ html {
 }
 
 body {
+<<<<<<< HEAD
+  width: 75%;
+  min-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(44, 62, 80, 1);
+=======
   width: 70%;
   min-width: 800px;
   margin: 0 auto;
   background-color: #6091C3;
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
 }
 
 /* || typography */
 
 h1, h2, h3 {
+<<<<<<< HEAD
+  font-family: 'Life Savers', cursive;
+    color: #2a2a2a;
+}
+
+p, input, li {
+  font-family: "Life Savers", sans-serif;
+=======
   font-family: 'Cinzel Decorative', cursive;
   color: #2a2a2a;
 }
 
 p, input, li {
   font-family: 'Roboto Condensed', sans-serif;
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
   color: #2a2a2a;
 }
 
@@ -33,13 +49,21 @@ h1 {
   font-size: 4rem;
   text-align: center;
   text-shadow: 2px 2px 10px black;
+<<<<<<< HEAD
+  font-weight: 950;
+=======
   font-weight: 100;
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
 }
 
 h2 {
   font-size: 5rem;
   text-align: center;
+<<<<<<< HEAD
+  font-weight: 600;
+=======
   font-weight: 800;
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
 }
 
 h3 {
@@ -60,12 +84,21 @@ p, li {
 }
 
 body > * {
+<<<<<<< HEAD
+  background-color:rgba(245, 171, 53, 1);
+  padding: 1%;
+}
+
+.main, .header, nav, .article, .aside, footer, section {
+  background-color:rgba(238, 238, 0, 0.5);
+=======
   background-color: red;
   padding: 1%;
 }
 
 .main, .header, nav, .article, .aside, .footer, section {
   background-color: rgba(0,255,0,0.5);
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
   padding: 1%;
 }
 
@@ -74,10 +107,17 @@ h1 {
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
+header img {
+  display: block;
+  height: 6px;
+  padding-top: 8px;
+=======
 .header img {
   display: block;
   height: 60px;
   padding-top: 20.15px;
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
 }
 
 nav {
@@ -138,4 +178,8 @@ nav a, nav span {
 
 .footer {
   margin-top: 10px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9384ca1fde0bc9a9a86c4e38c2be464070cb6762
