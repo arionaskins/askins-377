@@ -14,7 +14,7 @@ html, body {
     width: 70%;
     min-width: 800px;
     margin: 0 auto;
-    background-color: #6091C3;
+    background-color: yellow;
   }
   
   /* || typography */
@@ -60,7 +60,7 @@ html, body {
   }
   
   body > * {
-    background-color: red;
+    background-color: greenyellow;
     padding: 1%;
   }
   

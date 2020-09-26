@@ -1,1 +1,66 @@
-hello 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lab 4</title>
+        <h1> Juan Eric Acha-Ngwodo</h1>
+        <meta name = "author" content = Juan Acha-Ngwodo>
+        <meta charset="utf-8">
+        <title>Birdwatching</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container">
+            <form method="post">
+                <ul class="flex-outer">
+                    <li>
+                        <label for = "first-name">First Name</label>
+                        <input type = "text" id = "first-name" placeholder="Enter your first name here">
+                    </li>
+                    <li>
+                        <label for = "last-name">Last Name</label>
+                        <input type = "text" id = "last-name" placeholder = "Enter your last name here">
+                    </li>
+                    <li>
+                        <label for = "email">Email</label>
+                        <input type = "email" id = "email" placeholder = "Enter your email here">
+                    </li>
+                    <li>
+                        <label for = "phone">Phone</label>
+                        <input type = "tel" id = "phone" placeholder = "Enter your phone number here">
+                    </li>
+                    <li>
+                        <label for = "message"> Message</label>
+                        <textarea rows="5" cols = "35" id = "message" placeholder = "Enter your message here"></textarea>
+                    </li>               
+                
+                
+                    <li>
+                        <p>Ages</p>
+                    
+                        <ul class = "flex-inner">
+                            <li>
+                                <input type = "checkbox" id = "twenty-thirtyfive">
+                                <label for = "twenty-thirtyfive" name = "First Age Range" id = "firstRange"> 20 - 35 </label>
+                            </li>
+                            <li>
+                                <input type = "checkbox" id = "thirtyfive-fifty">
+                                <label for = "thirtyfive-fifty" name = "Second Age Range" id = "secondRange" >35 - 50</label>
+                            </li>
+                            <li>
+                                <input type = "checkbox" id = "fifty-sixtyfive">
+                                <label for = "fifty-sixtyfive" name = "Third Age Range"  id = "thirdRange" >50 - 65</label>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="submit">Submit</button>
+                    </li>
+                </ul> 
+                    
+                
+            </form>
+        </body>
+    </div>
+</html> 
