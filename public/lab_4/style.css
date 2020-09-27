@@ -14,7 +14,7 @@ html, body {
     width: 70%;
     min-width: 800px;
     margin: 0 auto;
-    background-color: yellow;
+    background-color: greenyellow;
   }
   
   /* || typography */
@@ -140,3 +140,13 @@ html, body {
     margin-top: 10px;
     background: rgba(0,255,0,0.5);
   }
+
+.flex-outer  {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+ 
+
+.flex-inner {
+  flex: 1 0 220px;
+}
