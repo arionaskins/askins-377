@@ -1,18 +1,32 @@
-.header{
-    background-color: red;
+.header {
+    background-color: darkcyan;
+    color: lightcoral
 }
 .wrapper{
-    background-color: green;
+    background-color: darkgoldenrod;
+    orientation: hori;
 }
 
-.content{
-    display: flex; 
+.container{
+    display: flex;
+    width: 950px;
+    padding: 25px 50px 75px 100px; 
+    margin: 25px 50px 75px 100px;
+    background-color: lightblue;
+
 }
 
 .a1{
     background-color: hotpink;
+    text-align: center;
 }
 
 .a2{
     background-color: white;
+}
+
+ul{
+    background-color: hotpink;
+    text-align: center;
+  
 }
