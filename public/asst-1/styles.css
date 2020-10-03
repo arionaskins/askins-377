@@ -1,10 +1,24 @@
 .header {
-    background-color: darkcyan;
-    color: lightcoral
+    background: darkcyan;
+    color: lightcyan;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 15px;
 }
+
+body{
+    background: lightcyan;
+}
+
 .wrapper{
-    background-color: darkgoldenrod;
-    orientation: hori;
+    display: darkgoldenrod;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container{
@@ -13,15 +27,19 @@
     padding: 25px 50px 75px 100px; 
     margin: 25px 50px 75px 100px;
     background-color: lightblue;
-
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-.a1{
+.content1{
+    flex: 1 0 auto;
+    margin-right: 15px;
     background-color: hotpink;
     text-align: center;
 }
 
-.a2{
+.content2{
     background-color: white;
 }
 
@@ -29,4 +47,9 @@ ul{
     background-color: hotpink;
     text-align: center;
   
+}
+
+img{
+    border-width: 1px;
+    border-radius: 4px;
 }
