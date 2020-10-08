@@ -4,14 +4,15 @@
   <head>
     <meta charset="utf-8">
     <title>Arion Askins - Lab 4</title>
+    <h1>Arion Askins - Lab 4</h1>
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
      </head>
 
      <body>
  
-        <div> 
-            <h1>Arion Askins - Lab 4</h1>
+        <div class=content> 
+           
             <form action="/api" method="post">
             <ul class="flex-outer">
               <li>
@@ -35,7 +36,7 @@
                 <textarea rows="5" cols="33" id="message" name="message" placeholder="Enter your message here"></textarea>
               </li>
               <li>
-                <p>Age</p>
+                <p class="checkbox-list-label">Age</p>
                 <ul class="flex-inner">
                   
                     <li>
@@ -54,14 +55,15 @@
 
                 </ul>
               </li>
-              <li>
-                <button type="submit" name="button" id=button>Submit</button>
+
+              <li class="buttons">
+                <button class="button" type="submit" name="button" id=button>Submit Form</button>
+                <button class="button" type="button" name="activate" id=activate>Activate</button>
               </li>
+
             </ul>
           </form>
         </div> 
-
-
 
 
      </body>
