@@ -58,7 +58,7 @@
 
               <li class="buttons">
                 <button class="button" type="submit" name="button" id=button>Submit Form</button>
-                <button class="button" type="button" name="activate" id=activate onclick="clickMe()">Activate</button>
+                <button class="button" type="button" name="activate" id="activate">Activate</button>
               </li>
 
             </ul>
@@ -66,6 +66,12 @@
         </div> 
 
         <script>
+          let btn = document.querySelector('#activate');
+          btn.onclick = function() {
+
+            
+          };
+
           function testFunction() {
             fetch('/api')
             .then((response) => response.text())
