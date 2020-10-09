@@ -1,6 +1,6 @@
 .flex-outer ul {
   justify-content: space-between;
-
+  border: none;
 }
 
 
@@ -8,7 +8,7 @@
 .flex-outer {
   max-width: 800px;
   padding: 0px 16px;
-
+  border: none;
 }
 
 /* checkbox */ 
@@ -19,6 +19,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 padding-bottom: 16px;
+border: none;
 }
 
 /* list label */
@@ -28,6 +29,7 @@ flex: 1 0 125px;
 max-width: 225px;
 padding: 8px;
 justify-content: center;
+border: none;
 }
 
 
@@ -41,7 +43,7 @@ flex: 1 0 225px;
   padding: 6px 12px;
   border: none;
   background: #333;
-  color: #ff0000;
+  color: whitesmoke;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   border-radius: 3px;
@@ -52,14 +54,17 @@ flex: 1 0 225px;
   width: 85px;
   justify-content:space-between;
   flex-wrap: nowrap;
+  border: none;
 }
 
 .flex-inner {
   justify-content: space-between;
+  border: none;
 }
 
 body {
   background-color: aqua;
+  border: none;
 }
 h1 {
   margin-left: 20 ;
