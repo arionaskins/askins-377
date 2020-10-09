@@ -3,17 +3,15 @@
 
   <head>
     <meta charset="utf-8">
-    <title class='pagetitle'>Arion Askins - Lab 4</title>
-    <h1 class="pageheader">Arion Askins - Lab 4</h1>
-    <link rel="stylesheet" href="styles.css">
+    <title>Arion Askins - Lab 4</title>
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
      </head>
 
      <body>
  
-    
-        <div class=content> 
-           
+        <div> 
+            <h1>Arion Askins - Lab 4</h1>
             <form action="/api" method="post">
             <ul class="flex-outer">
               <li>
@@ -37,64 +35,34 @@
                 <textarea rows="5" cols="33" id="message" name="message" placeholder="Enter your message here"></textarea>
               </li>
               <li>
-                <p class="checkbox-list-label">Age</p>
+                <p>Age</p>
                 <ul class="flex-inner">
                   
                     <li>
                         <input type="checkbox" name="eighteen-thirtyfive" id="eighteen-thirtyfive">
-                        <label for="eighteen-thirtyfive" class="clabel">18-35</label>
+                        <label for="eighteen-thirtyfive">18-35</label>
                       </li>
                       <li>
                         <input type="checkbox" name= "thirtyfive-fifty" id="thirtyfive-fifty">
-                        <label for="thirtyfive-fifty" class="clabel">35-50</label>
+                        <label for="thirtyfive-fifty">35-50</label>
                       </li>
                       
                       <li>
                         <input type="checkbox" name="fifty-sixtyfive" id="fifty-sixtyfive">
-                        <label for="fifty-sixtyfive" class="clabel">50-65</label>
+                        <label for="fifty-sixtyfive">50-65</label>
                       </li>
 
                 </ul>
               </li>
-
-              <li class="buttons">
-                <button class="button" type="submit" name="button" id=button>Submit Form</button>
-                <button class="button" type="button" name="activate" id="activate" onclick="testFunction()">Activate</button>
+              <li>
+                <button type="submit" name="button" id=button>Submit</button>
               </li>
-
             </ul>
           </form>
         </div> 
 
-        <script>
-           
-          function testFunction() {
-            const pheader = document.querySelector('.pageheader')
-            const ptitle = document.querySelector('.pagetitle')
-            fetch('/api')
-            .then((response) => response.text())
-            .then((response) => {
-            pheader.innerHTML = (response);
-            ptitle.innerHTML = (response);
-            document.body.style.backgroundColor = "rgb(255, 255, 255)";
-            document.body.style.background = "rgb(255, 255, 255)";
-            document.body.style.backgroundColor = "#f5b642";
-            document.getElementById("activate").style.color = 'red';
-            let marg = document.querySelector('.flex-outer')
-            marg.style.margin = '0 auto';
-            pheader.style.margin = '0 auto';
-            const labell = document.querySelectorAll(".clabel")
-            const fruitArray = ['pineapple', 'strawberry', 'mango']
-              labell.forEach((lab, i) => {
-                const text = lab.innerText;
-                console.log(lab);
-                lab.innerText = fruitArray[i];
-                })})
-            const newAge = document.querySelector('.checkbox-list-label')
-            newAge.innerText = 'Fruits'
-          };
 
-        </script>
+
 
      </body>
      </html>
