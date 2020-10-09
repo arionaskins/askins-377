@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title class='pagetitle'>Arion Askins - Lab 4</title>
-    <h1 class="pageheader">Arion Askins - Lab 4</h1>
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
      </head>
@@ -13,7 +13,7 @@
  
     
         <div class=content> 
-           
+          <h1 class="pageheader">Arion Askins - Lab 4</h1>
             <form action="/api" method="post">
             <ul class="flex-outer">
               <li>
@@ -77,12 +77,10 @@
             pheader.innerHTML = (response);
             ptitle.innerHTML = (response);
             document.getElementById("activate").style.color = 'red';
-            document.body.style.backgroundColor = "rgb(255, 255, 255)";
-            document.body.style.background = "rgb(255, 255, 255)";
             document.body.style.backgroundColor = "#f5b642";
             let marg = document.querySelector('.flex-outer')
             marg.style.margin = '0 auto';
-            pheader.style.marginleft = '45%';
+            pheader.style.margin = '0px 45% 0px 0px';
             const labell = document.querySelectorAll(".clabel")
             const fruitArray = ['pineapple', 'strawberry', 'mango']
               labell.forEach((lab, i) => {
