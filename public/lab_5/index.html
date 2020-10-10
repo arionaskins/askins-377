@@ -46,11 +46,11 @@
                                 </li>
                                 <li>
                                     <input type = "checkbox" id = "thirtyfive-fifty" name = "age-range">
-                                    <label for = "thirtyfive-fifty" >35 - 50</label>
+                                    <label for = "thirtyfive-fifty">35 - 50</label>
                                 </li>
                                 <li>
                                     <input type = "checkbox" id = "fifty-sixtyfive" name = "age-range">
-                                    <label for = "fifty-sixtyfive" >50 - 65</label>
+                                    <label for = "fifty-sixtyfive">50 - 65</label>
                                 </li>
                             </ul>
                         </li>
@@ -61,7 +61,6 @@
                         <li>
                             <button onclick = "testFunction()" type = "button" name = "activate-button" id = "activate-button" class="secondary">Activate</button>
                         </li>
-                       
                     </ul> 
                 </form>    
             </div>
@@ -91,17 +90,21 @@
                 const labelChange = document.querySelector(".checkbox-list-label");
                 labelChange.innerHTML = "<p>" +  "Fruits" + "</p>"
 
+                fruitLabelSetter();
+
                 
-               
 
              }
 
-             function fruitSetter(){
-                 var fruits = ["Apple", "Grape", "Strawberry"];
-                 const agesLabels = document.querySelectorAll("Age-Range");
-                 return agesLabels[0];
+             function fruitLabelSetter(){
+                 var fruits = ["Apple", "Grapes", "Strawberry"];
+                 var i = 0;
+                 const ageLabels = document.querySelectorAll(".flex-inner > li > label");
 
-                 
+                 for(i = 0; i < ageLabels.length; i++){
+                     var tempLabel = ageLabels[i];
+                     tempLabel.innerHTML = "<label>" +  fruits[i] + "</label>";
+                 }   
              }
         </script>
 
