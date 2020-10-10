@@ -37,42 +37,73 @@
                     
                     
                         <li>
-                            <p class = "checkbox-list-label">Ages</p>
+                            <p class = "checkbox-list-label">Age</p>
                         
                             <ul class = "flex-inner">
                                 <li>
                                     <input type = "checkbox" id = "eightteen-thirtyfive" name = "age-range">
-                                    <label for = "eightteen-thirtyfive" name = "age-range" id="eightteen-thirtyfive"> 18 - 35 </label>
+                                    <label for = "eightteen-thirtyfive" > 18 - 35 </label>
                                 </li>
                                 <li>
                                     <input type = "checkbox" id = "thirtyfive-fifty" name = "age-range">
-                                    <label for = "thirtyfive-fifty" name = "age-range" id = "thirtyfive-fifty">35 - 50</label>
+                                    <label for = "thirtyfive-fifty" >35 - 50</label>
                                 </li>
                                 <li>
                                     <input type = "checkbox" id = "fifty-sixtyfive" name = "age-range">
-                                    <label for = "fifty-sixtyfive" name = "age-range" id = "fifty-sixtyfive">50 - 65</label>
+                                    <label for = "fifty-sixtyfive" >50 - 65</label>
                                 </li>
                             </ul>
                         </li>
 
                         <li>
-                            <button type = "submit" name = "submission-button" id = "submission-button" class="button">Submit</button>
+                            <button type = "submit" name = "submission-button" id = "submission-button" class="primary">Submit</button>
                         </li>
                         <li>
-                            <button onclick = "testFunction()" type = "submit" name = "activate-button" id = "activate-button" class = "button">Activate</button>
+                            <button onclick = "testFunction()" type = "button" name = "activate-button" id = "activate-button" class="secondary">Activate</button>
                         </li>
+                       
                     </ul> 
                 </form>    
             </div>
         </div> 
+
         <script>
              function testFunction() {
-                 fetch('/api')
+                let data = fetch('/api')
                  .then((response) => response.text())
                  .then((response) => {
                      console.log(response);
+                     return response;
                     })
+                
+                const backGroundColor = document.querySelector("body");
+                backGroundColor.style.background = "rgb(255, 0, 200)";
+
+                const nameChanger = document.querySelector(".header");
+                nameChanger.innerHTML = "<h1>" + "Lab 5 for Juan Acha-Ngwodo" + "</h1>"
+
+                const titleChange = document.querySelector("head");
+                titleChange.title =  String(data);
+
+                const centerForm = document.querySelector(".flex-outer");
+                centerForm.style.margin = "0 auto";
+
+                const labelChange = document.querySelector(".checkbox-list-label");
+                labelChange.innerHTML = "<p>" +  "Fruits" + "</p>"
+
+                
+               
+
+             }
+
+             function fruitSetter(){
+                 var fruits = ["Apple", "Grape", "Strawberry"];
+                 const agesLabels = document.querySelectorAll("Age-Range");
+                 return agesLabels[0];
+
+                 
              }
         </script>
+
     </body>
 </html> 

@@ -25,10 +25,3 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 });
 
-function testFunction() {
-  fetch('/api')
-  .then((response) => response.text())
-  .then((response) => {
-       console.log(response);
-  })
-}
