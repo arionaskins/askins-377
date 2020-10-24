@@ -68,4 +68,5 @@ document.body.addEventListener('submit', async (e) => {
       console.log(lst);
     })
     .catch((err) => console.log(err));
-});
+});// formm.prepend(lst.className = 'flex-inner');
+// const ar = lst.map((nu) => nu.Math.random()*(243-0)+0);
