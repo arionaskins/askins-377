@@ -1,5 +1,7 @@
 // You may wish to find an effective randomizer function on MDN.
 
+//const { default: countries } = require("./countries");
+
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -30,6 +32,32 @@ document.body.addEventListener('submit', async (e) => {
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
       // You're going to do your lab work in here. Replace this comment.
+      var tempCountries = countries.map(countries.name);
+      var randomCountries = range(9);
+      var randomIndex = 0;
+
+      for(i = 0; i < randomCountries.length; i++){
+        randomIndex = Math.floor((Math.random() * (tempCountries.length - 1)));
+        randomCountries[i] = tempCountries[randomIndex];
+      }
+      
+      randomCountries.sort();
+      randomCountries.reverse();
+
+    for(i = 0; i < randomCountries.length; i++){
+
+      var country = randomCountries[i];
+      var checkBox = '<li>' +
+                      '<input type = "checkbox" id =' + country + '>' +
+                      '<label for =' + country +'>' + country + '</label>' +
+                    '</li>';
+    
+      document.querySelector(".flex-inner").innerHTML += checkBox;
+    }
+    
+
+    
+
       console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
