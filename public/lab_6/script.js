@@ -1,7 +1,4 @@
 // You may wish to find an effective randomizer function on MDN.
-
-//const { default: countries } = require("./countries");
-
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -54,9 +51,6 @@ document.body.addEventListener('submit', async (e) => {
     
       document.querySelector(".flex-inner").innerHTML += checkBox;
     }
-    
-
-    
 
       console.log('fromServer', fromServer);
     })
