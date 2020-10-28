@@ -1,4 +1,6 @@
 // You may wish to find an effective randomizer function on MDN.
+
+
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -28,31 +30,57 @@ document.body.addEventListener('submit', async (e) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      // You're going to do your lab work in here. Replace this comment.
-      var tempCountries = countries.map(countries.name);
-      var randomCountries = range(9);
-      var randomIndex = 0;
+        // You're going to do your lab work in here. Replace this comment.
+
+        
+
+
+
+        var tempCountries = fromServer.map(fromServer => fromServer.name + " " + fromServer.code);
+        var tempCountry;
+        var randomCountries = range(10);
+        var randomCode = range(10);
+        var randomIndex = 0;
+
+        
+
+        for(i = 0; i < randomCountries.length; i++){
+          randomIndex = Math.floor((Math.random() * (tempCountries.length - 1)));
+          tempCountry = tempCountries[randomIndex].split(" ");
+
+          countryName = tempCountry[0];
+          countryCode = tempCountry[1];
+
+          randomCountries[i] = countryName;
+          randomCode[i] = countryCode;
+
+        }
+        
+
+        randomCountries.sort();
+        randomCountries.reverse();
+        randomCode.sort();
+        randomCode.reverse();
+        //Everything stops working after this line
+      
+      var list = document.querySelector(".hack");
+      list.setAttribute("class", "flex-inner");
 
       for(i = 0; i < randomCountries.length; i++){
-        randomIndex = Math.floor((Math.random() * (tempCountries.length - 1)));
-        randomCountries[i] = tempCountries[randomIndex];
-      }
+        var country = randomCountries[i];
+        var code = randomCode;
+
+        var checkBox = '<li>' +
+                        '<input type = "checkbox" id =' + country + 'value = ' + code + '>' +
+                        '<label for =' + country +'>' + country + '</label>' +
+                      '</li>';
       
-      randomCountries.sort();
-      randomCountries.reverse();
-
-    for(i = 0; i < randomCountries.length; i++){
-
-      var country = randomCountries[i];
-      var checkBox = '<li>' +
-                      '<input type = "checkbox" id =' + country + '>' +
-                      '<label for =' + country +'>' + country + '</label>' +
-                    '</li>';
+        var element = document.querySelector(".flex-inner");
+        element.innerHTML += checkBox;
+              
+      }
     
-      document.querySelector(".flex-inner").innerHTML += checkBox;
-    }
-
-      console.log('fromServer', fromServer);
+        console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
 });
