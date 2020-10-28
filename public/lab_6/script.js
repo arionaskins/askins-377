@@ -32,50 +32,55 @@ document.body.addEventListener('submit', async (e) => {
     .then((fromServer) => {
         // You're going to do your lab work in here. Replace this comment.
 
-        
-
-
-
-        var tempCountries = fromServer.map(fromServer => fromServer.name + " " + fromServer.code);
-        var tempCountry;
+        var tempCountries = fromServer.map(fromServer => fromServer.name);
+        var tempCountry;    
+        var tempCode = fromServer.map(fromServer => fromServer.code);
+    
         var randomCountries = range(10);
         var randomCode = range(10);
         var randomIndex = 0;
 
-        
-
+    
         for(i = 0; i < randomCountries.length; i++){
           randomIndex = Math.floor((Math.random() * (tempCountries.length - 1)));
-          tempCountry = tempCountries[randomIndex].split(" ");
+          tempCountry = tempCountries[randomIndex].split(",");
+          
+          if(tempCountry[1] != null){
+            countryName = tempCountry[1] + " " + tempCountry[0];
+          }else{
+            countryName = tempCountry;
+          }
 
-          countryName = tempCountry[0];
-          countryCode = tempCountry[1];
+          countryCode = tempCode[randomIndex];
 
           randomCountries[i] = countryName;
           randomCode[i] = countryCode;
 
         }
         
-
         randomCountries.sort();
         randomCountries.reverse();
+      
         randomCode.sort();
         randomCode.reverse();
-        //Everything stops working after this line
-      
-      var list = document.querySelector(".hack");
+
+        console.log("Countries", randomCountries);
+        console.log("Codes", randomCode);
+
+      var list = document.querySelector("form > ul");
       list.setAttribute("class", "flex-inner");
+      list.innerHTML = "";
 
       for(i = 0; i < randomCountries.length; i++){
         var country = randomCountries[i];
         var code = randomCode;
 
         var checkBox = '<li>' +
-                        '<input type = "checkbox" id =' + country + 'value = ' + code + '>' +
+                        '<input type = "checkbox" name = "data" id =' + country + 'value = ' + code + '>' +
                         '<label for =' + country +'>' + country + '</label>' +
                       '</li>';
       
-        var element = document.querySelector(".flex-inner");
+        var element = document.querySelector("form > ul");
         element.innerHTML += checkBox;
               
       }
