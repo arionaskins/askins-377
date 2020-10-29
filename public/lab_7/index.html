@@ -15,13 +15,16 @@ In your CSS, pick your own button and h1 colours
 <!DOCTYPE html>
 <html lang="en">
 
-
-  <head>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <title>Arion Askins' Lab 7</title>
-  </head>
-
-
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <title>Arion Askins' Lab 7</title>
+        <script
+          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+          crossorigin="anonymous"
+        ></script>
+      </head>
+    
   <body>
 
     <header class='header'>
@@ -32,15 +35,14 @@ In your CSS, pick your own button and h1 colours
         <div class='container'>
 
             <div class='flex-outer'>
-                <ul>
-                    <li>
+                <form>
                         <button
-                            type="submit"
-                            name="submitButton">
+                            type='submit'
+                            name='submitButton'
+                            class='submitButton'>
                             WHERE SHOULD WE EAT
                         </button>
-                    </li>
-                </ul>
+                </form>
             </div> <!-- outer -->
 
             <div id='chartContainer'>
@@ -50,7 +52,7 @@ In your CSS, pick your own button and h1 colours
         </div> <!-- container -->
     </div> <!-- wrapper -->
 
-    <!--   <script src="script.js"></script>-->
+ <script src="script.js"></script>
   </body>
 
 

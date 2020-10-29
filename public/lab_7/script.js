@@ -50,14 +50,14 @@ function runThisWithResultsFromServer(jsonFromServer) {
 // Leave lines 52-67 alone; do your work in the functions above
 document.body.addEventListener('submit', async (e) => {
   e.preventDefault(); // this stops whatever the browser wanted to do itself.
-  const form = $(e.target).serializeArray();
+  const form = $(e.target).serializeArray(); // here we're using jQuery to serialize the form
   fetch('/api', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(form)
-  })
+  }) 
     .then((fromServer) => fromServer.json())
     .then((jsonFromServer) => runThisWithResultsFromServer(jsonFromServer))
     .catch((err) => {
