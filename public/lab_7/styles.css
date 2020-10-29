@@ -10,6 +10,7 @@ body {
 
 .container {
   min-height: 100%;
+  
 }
 
 .header {
@@ -29,6 +30,7 @@ body {
 .flex-inner {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -47,6 +49,7 @@ body {
 
 .flex-outer button {
   background-color: darkolivegreen;
+  justify-content: center;
   color: white;
   padding: 6px 12px;
   border: none;
@@ -84,7 +87,7 @@ h1 {
   margin: 20px 50px;
   padding: 0 20px;
   min-height: 75px;
-  background-color: darkolivegreen;
+  background-color: maroon;
   color: white;
   display: flex;
   
