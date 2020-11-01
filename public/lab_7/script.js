@@ -1,6 +1,46 @@
+function range(int) {
+  const arr = [];
+  for (let i = 0; i < int; i += 1) {
+    arr.push(i);
+  }
+  return arr;
+}
+
+function getRandomIntInclusive(min, max) {
+  const min1 = Math.ceil(min);
+  const max1 = Math.floor(max);
+  return Math.floor(Math.random() * (max1 - min1 + 1) + min1); 
+}
+
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  return list;
+  const rlist = range(restaurantList.length);
+  console.log(rlist);
+  const newlist = rlist.map((item) => {
+    const which = getRandomIntInclusive(0, (rlist.length - 2));
+    return restaurantList[which]; // we are not worrying about uniqueness here 
+  })
+  console.log(newlist);
+
+  const newDataShape = newlist.reduce((collection, item) => {
+    // for each item, check if we have a category for that item already
+    const findCat = collection.find((findItem) => findItem.label === item.category);
+    
+    if (!findCat) {
+      collection.push({
+        label: item.category,
+        y: 1
+      });
+    } else {
+      const position = collection.findIndex(el => el.label === item.category);
+      collection[position].y += 1;
+    }
+    return collection;
+  }, []);
+
+  console.table(newDataShape);
+  console.log(newDataShape, 'newlst');
+  return newDataShape;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
@@ -11,9 +51,9 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
 
   return {
     animationEnabled: true,
-    colorSet: 'customColorSet1',
+    colorSet: 'customColorSet2',
     title: {
-      text: 'Change This Title'
+      text: 'Places To Eat Out In Future'
     },
     axisX: {
       interval: 1,
@@ -36,7 +76,7 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
 }
 
 function runThisWithResultsFromServer(jsonFromServer) {
-  console.log('jsonFromServer', jsonFromServer);
+//  console.table('jsonFromServer', jsonFromServer);
   sessionStorage.setItem('restaurantList', JSON.stringify(jsonFromServer)); // don't mess with this, we need it to provide unit testing support
   // Process your restaurants list
   // Make a configuration object for your chart

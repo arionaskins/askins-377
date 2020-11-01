@@ -22,13 +22,12 @@ app.use((req, res, next) => {
 });
 
 app.route('/api') 
-  .get(async(req, res) => {
-    const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
-    const json = await data.json();
-    console.log('POST request detected', json);
+  .get((req, res) => {
     res.send(`Lab 5 for ${process.env.NAME}`);
   })
   .post(async(req, res) => {
+    const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
+    const json = await data.json();
     res.json(json);
   });
 

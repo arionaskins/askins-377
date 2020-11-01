@@ -27,32 +27,24 @@ In your CSS, pick your own button and h1 colours
     
   <body>
 
-    <header class='header'>
-        <h1> Arion Askins - Lab 6</h1>
-    </header>
-
     <div class='wrapper'>
-        <div class='container'>
-
-            <div class='flex-outer'>
+    <div class='container flex-outer'>
+        <header class='header'>
+            <h1> Arion Askins - Lab 6</h1>
+        </header>
                 <form>
-                        <button
-                            type='submit'
-                            name='submitButton'
-                            class='submitButton'>
-                            WHERE SHOULD WE EAT
-                        </button>
+                    <button
+                        type='submit'
+                        name='submitButton'
+                        class='submitButton'>
+                        WHERE SHOULD WE EAT
+                    </button>
                 </form>
-            </div> <!-- outer -->
-
-            <div id='chartContainer'>
-
-            </div>
-
-        </div> <!-- container -->
+        <div id='chartContainer' class='canvasjs-chart-container'></div>
+    </div> <!-- container -->
     </div> <!-- wrapper -->
-
- <script src="script.js"></script>
+    <script src="canvasjs.min.js"></script>
+    <script src="script.js"></script>
   </body>
 
 
