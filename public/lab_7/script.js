@@ -9,7 +9,7 @@ function range(int) {
 function getRandomIntInclusive(min, max) {
   const min1 = Math.ceil(min);
   const max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max1 - min1 + 1) + min1); 
+  return Math.floor(Math.random() * (max1 - min1) + min1); 
 }
 
 function convertRestaurantsToCategories(restaurantList) {
@@ -17,7 +17,7 @@ function convertRestaurantsToCategories(restaurantList) {
   const rlist = range(restaurantList.length);
   console.log(rlist);
   const newlist = rlist.map((item) => {
-    const which = getRandomIntInclusive(0, (rlist.length - 2));
+    const which = getRandomIntInclusive(0, (rlist.length));
     return restaurantList[which]; // we are not worrying about uniqueness here 
   })
   console.log(newlist);
@@ -46,12 +46,15 @@ function convertRestaurantsToCategories(restaurantList) {
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
   CanvasJS.addColorSet('customColorSet1', [
-    // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
+    '#003f5c',
+    '#58508d',
+    '#ff6361',
+    '#ffa600'// add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
   ]);
 
   return {
     animationEnabled: true,
-    colorSet: 'customColorSet2',
+    colorSet: 'customColorSet1',
     title: {
       text: 'Places To Eat Out In Future'
     },
@@ -62,9 +65,29 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
     axisY2: {
       interlacedColor: 'rgba(1,77,101,.2)',
       gridColor: 'rgba(1,77,101,.1)',
-      title: 'Change This Title',
+      title: 'Restaurants By Category',
       labelFontSize: 12,
-      scaleBreaks: {customBreaks: []} // Add your scale breaks here https://canvasjs.com/docs/charts/chart-options/axisy/scale-breaks/custom-breaks/
+      maximum: 200,
+      scaleBreaks: {
+        customBreaks: [{
+          startValue: 40,
+          endValue: 50,
+          color: 'maroon',
+          type: 'zigzag'
+        },
+        {
+          startValue: 85,
+          endValue: 100,
+          color: 'maroon',
+          type: 'zigzag'
+        },
+        {
+          startValue: 140,
+          endValue: 175,
+          color: 'maroon',
+          type: 'zigzag'
+        }]
+      } 
     },
     data: [{
       type: 'bar',
@@ -75,16 +98,20 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
   };
 }
 
+async function loadData(cats) {
+  const options = makeYourOptionsObject(cats);
+  const chart = new CanvasJS.Chart('chartContainer', options);
+  chart.render();
+}
+
 function runThisWithResultsFromServer(jsonFromServer) {
 //  console.table('jsonFromServer', jsonFromServer);
   sessionStorage.setItem('restaurantList', JSON.stringify(jsonFromServer)); // don't mess with this, we need it to provide unit testing support
   // Process your restaurants list
   // Make a configuration object for your chart
   // Instantiate your chart
-  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
-  const options = makeYourOptionsObject(reorganizedData);
-  const chart = new CanvasJS.Chart('chartContainer', options);
-  chart.render();
+  const data = convertRestaurantsToCategories(jsonFromServer);
+  window.onload = loadData(data);
 }
 
 // Leave lines 52-67 alone; do your work in the functions above
