@@ -98,20 +98,16 @@ function makeYourOptionsObject(datapointsFromRestaurantsList) {
   };
 }
 
-async function loadData(cats) {
-  const options = makeYourOptionsObject(cats);
-  const chart = new CanvasJS.Chart('chartContainer', options);
-  chart.render();
-}
-
 function runThisWithResultsFromServer(jsonFromServer) {
 //  console.table('jsonFromServer', jsonFromServer);
   sessionStorage.setItem('restaurantList', JSON.stringify(jsonFromServer)); // don't mess with this, we need it to provide unit testing support
   // Process your restaurants list
   // Make a configuration object for your chart
   // Instantiate your chart
-  const data = convertRestaurantsToCategories(jsonFromServer);
-  window.onload = loadData(data);
+  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
+  const options = makeYourOptionsObject(reorganizedData);
+  const chart = new CanvasJS.Chart('chartContainer', options);
+  chart.render();
 }
 
 // Leave lines 52-67 alone; do your work in the functions above

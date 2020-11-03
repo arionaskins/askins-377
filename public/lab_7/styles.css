@@ -1,16 +1,21 @@
 /*CSS*/
 body {
-  background: rgb(114, 114, 114);
+  background: #fffc9e;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
+  padding: 0px 0px auto 0px;
 }
 
 .container {
   min-height: 100%;
   
+}
+
+#form {
+  padding-top: auto;
 }
 
 .header {
