@@ -3,22 +3,6 @@ function convertRestaurantsToCategories(restaurantList) {
   return list;
 }
 
- function uniqueCategories(categoriesArr){
-  var uniqueCategoryArr = [];
-  var tempCategory = "";
-  var i = 0;
-  var j = 0;
- 
-   for(i = 0; i < categoriesArr.length; i++){
-    tempCategory = categoriesArr[i];
-   
-    if(uniqueCategoryArr.includes(tempCategory) == false)
-      uniqueCategoryArr[j++] = tempCategory;
-  }
-
-  return uniqueCategoryArr;
-}
-
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
   // set your chart configuration here!
   CanvasJS.addColorSet('customColorSet1', [
