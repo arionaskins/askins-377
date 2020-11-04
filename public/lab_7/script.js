@@ -15,9 +15,7 @@ function convertRestaurantsToCategories(restaurantList) {
   console.log(newlist);
 
   const newDataShape = newlist.reduce((collection, item, i) => {
-    console.log('item is', item);
-    // for each item, check if we have a category for that item already
-    const findCat = collection.find((findItem) => findItem.label === item.category);
+    const findCat = collection.find((Item) => Item.label === item.category);
     
     if (!findCat) {
       collection.push({
@@ -25,14 +23,12 @@ function convertRestaurantsToCategories(restaurantList) {
         y: 1
       });
     } else {
-      const position = collection.findIndex((el) => el.label === item.category);
-      collection[position].y += 1;
+      const pos = collection.findIndex((el) => el.label === item.category);
+      collection[pos].y += 1;
     }
     return collection;
   }, []);
 
-  console.table(newDataShape);
-  console.log(newDataShape, 'newlst');
   return newDataShape;
 }
 
