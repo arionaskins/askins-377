@@ -6,23 +6,16 @@ function range(int) {
   return arr;
 }
 
-function getRandomIntInclusive(min, max) {
-  const min1 = Math.ceil(min);
-  const max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max1 - min1) + min1); 
-}
-
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
   const rlist = range(restaurantList.length);
   console.log(rlist);
-  const newlist = rlist.map((item) => {
-    const which = getRandomIntInclusive(0, (rlist.length));
-    return restaurantList[which]; // we are not worrying about uniqueness here 
-  })
+  const newlist = rlist.map((item) => restaurantList[item]); // we
+  console.log(newlist.length ,'len list cats');
   console.log(newlist);
 
-  const newDataShape = newlist.reduce((collection, item) => {
+  const newDataShape = newlist.reduce((collection, item, i) => {
+    console.log('item is', item);
     // for each item, check if we have a category for that item already
     const findCat = collection.find((findItem) => findItem.label === item.category);
     
@@ -32,7 +25,7 @@ function convertRestaurantsToCategories(restaurantList) {
         y: 1
       });
     } else {
-      const position = collection.findIndex(el => el.label === item.category);
+      const position = collection.findIndex((el) => el.label === item.category);
       collection[position].y += 1;
     }
     return collection;
