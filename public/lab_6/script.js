@@ -12,10 +12,10 @@ function range(int) {
   return arr;
 }
 
-function sortFunction(a, b, key) {
-  if (a[key] < b[key]) {
+function sortFunction(org, comparison, key) {
+  if (org[key] < comparison[key]) {
     return -1;
-  } if (a[key] > b[key]) {
+  } if (org[key] > comparison[key]) {
     return 1;
   }
   return 0;
@@ -24,6 +24,7 @@ function sortFunction(a, b, key) {
 document.body.addEventListener('submit', async (e) => {
   e.preventDefault(); // this stops whatever the browser wanted to do itself.
   const form = $(e.target).serializeArray(); // here we're using jQuery to serialize the form
+  // set fave to yes
   fetch('/api', {
     method: 'POST',
     headers: {
@@ -32,7 +33,7 @@ document.body.addEventListener('submit', async (e) => {
     body: JSON.stringify(form)
   }) // fromserver is countries json from server
     .then((fromServer) => fromServer.json())
-    .then((fromServer) => {
+    .then((jsonFromServer) => {
       // You're going to do your lab work in here. Replace this comment.
       const formm = document.querySelector('form');
       const lst = range(10); // get 10 random number btwn 0-243 list

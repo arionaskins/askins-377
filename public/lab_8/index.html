@@ -1,0 +1,51 @@
+<!--
+    - set this up as an HTML page with correct wrapper and container
+    - this is to make sure your chart isn't Huge when it appears
+    - Import your stylesheet in the head
+    - Import your bar chart from https://canvasjs.com/html5-javascript-bar-chart/
+
+Create an HTML page that has:
+A "target div" for a chart from canvasjs.com 
+Add a button to fire a "submit" event to launch the scripts we're about to use
+Import the canvasjs library from canvasjs.min.js before your closing body tag
+Import your script.js file after canvasjs.
+In your CSS, pick your own button and h1 colours
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <title>Arion Askins' Lab 7</title>
+        <script
+          src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+          crossorigin="anonymous"
+        ></script>
+      </head>
+    
+  <body>
+
+    <div class='wrapper'>
+    <div class='container flex-outer'>
+        <header class='header'>
+            <h1> Arion Askins - Lab 7</h1>
+        </header>
+     <div id='chartContainer' class='canvasjs-chart-container'></div>
+     <form id='form'>
+        <button
+            type='submit'
+            name='submitButton'
+            class='submitButton'>
+            WHERE SHOULD WE EAT
+        </button>
+    </form>
+    </div> <!-- container -->
+    </div> <!-- wrapper -->
+    <script src="canvasjs.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+
+
+</html>

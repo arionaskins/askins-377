@@ -4,6 +4,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import sqlite from 'sqlite';
+import sqlite3 from 'sqlite3'
 import countries from './public/lab_6/countries.js';
 
 dotenv.config();
