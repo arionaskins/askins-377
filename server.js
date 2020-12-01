@@ -5,6 +5,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import sqlite3 from 'sqlite3'
+import { open } from 'sqlite'
 
 dotenv.config();
 
@@ -36,3 +38,40 @@ app.route('/api')
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 });
+
+const dbSettings = {
+  filename = './tmp/database.db', 
+  driver: sqlite3.Database,
+};
+
+function databaseInitialize(){
+  console.log(filename)
+  var title = document.createElement("h2");
+  title.innerHTML = "Food";
+
+  var table = document.createElement("table");
+  table.innerHTML = '<tr>'+
+                      '<th>name</th> <th>category</th> <th>inspection_date</th>' +
+                      '<th>inspection_results</th> <th>city</th> <th>state</th>' + 
+                      '<th>zip</th> <th>owner</th> <th>type</th>' +
+                    '</tr>'
+}
+
+app.route('/sql')
+  .get(async (req, res) => {
+    console.log('GET request detected');
+    console.log('fetch request data', json);
+  })
+  .post(async (req, res) => {
+    console.log('POST request detected');
+    const json = await data.json();
+    res.json(json);
+  });
+
+  function foodDataFetcher(){
+    const data = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
+    const json = await data.json();
+    res.json(json);
+  }
+
+  function dataInput()
