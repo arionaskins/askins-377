@@ -20,9 +20,8 @@
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
-    "recursive-readdir": "^2.2.2",
-    "sqlite": "^4.0.17",
-    "sqlite3": "^5.0.0"
+    "prismjs": "^1.22.0",
+    "recursive-readdir": "^2.2.2"
   },
   "devDependencies": {
     "cypress": "^4.12.1",
