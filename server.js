@@ -45,7 +45,7 @@ app.listen(port, () => {
 });
 
 const dbSettings = {
-  filename: './tmp/.db',
+  filename: './tmp/database.db',
 	driver: sqlite3.Database
 };
   
