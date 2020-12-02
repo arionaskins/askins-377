@@ -1,10 +1,11 @@
 // These are our required libraries to make the server work.
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import { open } from 'sqlite';
+import sqlite3 from 'sqlite3';
 
 dotenv.config();
 
@@ -44,38 +45,86 @@ app.listen(port, () => {
 });
 
 const dbSettings = {
-  filename = './tmp/database.db', 
-  driver: sqlite3.Database,
+	filename: './tmp/database.db',
+	driver: sqlite3.Database
 };
+  
+  async function databaseInitialize(dbSettings) {
+    try {
+      console.log(dbSettings);
 
-function databaseInitialize(){
-  console.log(filename)
-  var title = document.createElement("h2");
-  title.innerHTML = "Food";
+      const db = await open(dbSettings);
+      await db.exec(`CREATE TABLE IF NOT EXISTS restaurants (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        restaurant_name TEXT,
+        category TEXT)
+        `)
+  
+      const data = await foodDataFetcher();
+  
+      const test = await db.get("SELECT * FROM restaurants")
+      console.log(test);
+  
+    }
+    catch(e) {
+      console.log("Error loading Database");
+      console.log(e);
+  
+    }
+  }
 
-  var table = document.createElement("table");
-  table.innerHTML = '<tr>'+
-                      '<th>name</th> <th>category</th> <th>inspection_date</th>' +
-                      '<th>inspection_results</th> <th>city</th> <th>state</th>' + 
-                      '<th>zip</th> <th>owner</th> <th>type</th>' +
-                    '</tr>'
-}
-
-app.route('/sql')
-  .get(async (req, res) => {
-    console.log('GET request detected');
-    console.log('fetch request data', json);
+  app.route('/sql')
+  .get((req, res) => {
+    console.log('GET detected');
   })
   .post(async (req, res) => {
     console.log('POST request detected');
-    const json = await data.json();
-    res.json(json);
+    console.log('Form data in res.body', req.body);
+    // This is where the SQL retrieval function will be:
+    // Please remove the below variable
+		const db = await open(dbSettings);
+    const output = await databaseRetriever(db);
+    // This output must be converted to SQL
+    res.json(output);
   });
 
-  function foodDataFetcher(){
-    const data = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
-    const json = await data.json();
-    res.json(json);
+
+  async function foodDataFetcher() {
+    const url = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
+    const response = await fetch(url);
+  
+    return response.json()
+  
   }
 
-  function dataInput()
+  dataInput.forEach((entry) => {
+      const restaurant_name = entry.name;
+      const category = entry.category;
+
+  		await db.exec(`INSERT INTO restaurants (restaurant_name, category) VALUES ("${restaurant_name}", "${category}")`);
+		}
+	)
+
+async function insertIntoDB(data) {
+      try {
+        const restaurant_name = data.name;
+        const category = data.category;
+    
+        await db.exec(`INSERT INTO restaurants (restaurant_name, category) VALUES ("${restaurant_name}", "${category}")`);
+        console.log(`${restaurant_name} and ${category} inserted`);
+        }
+    
+      catch(e) {
+        console.log('Error on insertion');
+        console.log(e);
+        }
+    
+}
+
+async function databaseRetriever (db) {
+  const result = await db.all(`SELECT category, COUNT(restaurant_name) FROM restaurants GROUP BY category`);
+  return result;
+}
+
+
+    
