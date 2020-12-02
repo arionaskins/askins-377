@@ -1,30 +1,3 @@
-
-
-function convertRestaurantsToCategories(restaurantList) {
-  // process your restaurants here!
-  var categoryArr = restaurantList.map(restaurantList => restaurantList.category);
-  const categories = uniqueCategories(categoryArr);
-  var restaurantToCategoryList = [];
-  var categoryCount = 0;
-  var k = 0;
-
-  console.log("CategoriesFunction", uniqueCategories(categoryArr));
-
-  for(var i = 0; i < categories.length; i++){ 
-    for(var j = 0; j < categoryArr.length; j++){
-      if(categories[i] == categoryArr[j]){ //Counts the number of unique categories in all the categories given by jsonfromserver
-        categoryCount++;
-      }
-    }
-
-    restaurantToCategoryList[k++] = {y: categoryCount, label: categories[i]}; //Adds count and category to list
-    categoryCount = 0;
-  }
-
-
-  return restaurantToCategoryList;
-}
-
  function uniqueCategories(categoriesArr){
   var uniqueCategoryArr = [];
   var tempCategory = "";
@@ -85,8 +58,7 @@ function runThisWithResultsFromServer(jsonFromServer) {
   // Process your restaurants list
   // Make a configuration object for your chart
   // Instantiate your chart
-  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
-  console.log("List", convertRestaurantsToCategories(jsonFromServer));
+
   const options = makeYourOptionsObject(reorganizedData);
   const chart = new CanvasJS.Chart('chartContainer', options);
   chart.render();
@@ -96,7 +68,7 @@ function runThisWithResultsFromServer(jsonFromServer) {
 document.body.addEventListener('submit', async (e) => {
   e.preventDefault(); // this stops whatever the browser wanted to do itself.
   const form = $(e.target).serializeArray();
-  fetch('/api', {
+  fetch('/sql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
