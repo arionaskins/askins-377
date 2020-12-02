@@ -45,7 +45,7 @@ app.listen(port, () => {
 });
 
 const dbSettings = {
-	filename: './tmp/database.db',
+  filename: './tmp/.db',
 	driver: sqlite3.Database
 };
   
@@ -74,6 +74,9 @@ const dbSettings = {
     }
   }
 
+  databaseInitialize(dbSettings);
+
+
   app.route('/sql')
   .get((req, res) => {
     console.log('GET detected');
@@ -84,8 +87,7 @@ const dbSettings = {
     // This is where the SQL retrieval function will be:
     // Please remove the below variable
     const db = await open(dbSettings);
-    databaseInitialize(db);
-
+  
     const output = await databaseRetriever(db);
     // This output must be converted to SQL
     res.json(output);
