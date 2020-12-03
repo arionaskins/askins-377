@@ -48,6 +48,8 @@ const dbSettings = {
   filename: './tmp/database.db',
 	driver: sqlite3.Database
 };
+
+console.log( open(dbSettings));
   
   async function databaseInitialize(dbSettings) {
     try {
@@ -59,6 +61,7 @@ const dbSettings = {
         restaurant_name TEXT,
         category TEXT)
         `)
+        console.log("Works");
   
       const data = await foodDataFetcher();
       data.forEach((entry) => { dataInput(entry) });
@@ -74,7 +77,7 @@ const dbSettings = {
     }
   }
 
-  databaseInitialize(dbSettings);
+ 
 
 
   app.route('/sql')
@@ -86,15 +89,17 @@ const dbSettings = {
     console.log('Form data in res.body', req.body);
     // This is where the SQL retrieval function will be:
     // Please remove the below variable
+   
     const db = await open(dbSettings);
-  
+    databaseInitialize(db);
+
     const output = await databaseRetriever(db);
     // This output must be converted to SQL
     res.json(output);
   });
 
 
-  async function foodDataFetcher() {
+  async function foodDataFetcher() { //Gets the data from the server. Returns a JSON file of the data
     const url = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
     const response = await fetch(url);
   
@@ -103,7 +108,7 @@ const dbSettings = {
   }
 
 
-async function dataInput(data) {
+async function dataInput(data) { //Inserts Data into DB
       try {
         const restaurant_name = data.name;
         const category = data.category;
@@ -118,7 +123,7 @@ async function dataInput(data) {
       }
 }
 
-async function databaseRetriever (db) {
+async function databaseRetriever (db) { //returns the data from the db
   const result = await db.all(`SELECT category, COUNT(restaurant_name) FROM restaurants GROUP BY category`);
   return result;
 }

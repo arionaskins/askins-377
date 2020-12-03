@@ -59,6 +59,7 @@ function runThisWithResultsFromServer(jsonFromServer) {
   // Make a configuration object for your chart
   // Instantiate your chart
 
+  const reorganizedData = jsonFromServer;
   const options = makeYourOptionsObject(reorganizedData);
   const chart = new CanvasJS.Chart('chartContainer', options);
   chart.render();
