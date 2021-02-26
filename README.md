@@ -1,4 +1,9 @@
-# INST377-FA2020
+# Previously completed labs from INST377: Dynamic Web Applications <br>
+[heroku link: here](https://frozen-meadow-78901.herokuapp.com/) <br>
+<br> 
+<br>
+------------------------------
+## INST377-FA2020
 
 This is the lab support repository for the Fall 2020 version of INST377. 
 
