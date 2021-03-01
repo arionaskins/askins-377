@@ -2,9 +2,9 @@ body, html {
   height: 100%;
 }
 
-.big {
+.bg {
   /* The image used */
-  background-image: "t1.png";
+  background-image: "t2.png";
 
   /* Full height */
   height: 100%;
