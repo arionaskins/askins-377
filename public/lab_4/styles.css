@@ -1,10 +1,12 @@
 body{
   display: center;
   margin: 0%;
+  width: 100%;
 }
 
 .bg {
   position: center;
+  width: 100%;
   margin-top: 0%; 
   margin-right: 0%;
   margin-left: 0%;
