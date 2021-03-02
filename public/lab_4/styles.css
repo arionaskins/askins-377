@@ -1,16 +1,11 @@
-body, html {
-  height: 100%;
+body{
+  display: center;
+  margin: 0%;
 }
 
 .bg {
-  /* The image used */
-  background-image: "t2.png";
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: center;
+  margin-top: 0%; 
+  margin-right: 0%;
+  margin-left: 0%;
 }
